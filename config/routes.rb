@@ -1,6 +1,7 @@
 TcgCreator::Application.routes.draw do
   
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   get "users/new"
   get "static_pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,6 +11,8 @@ TcgCreator::Application.routes.draw do
   root 'static_pages#home'
 
   match '/signup', to: 'users#new', via: 'get'
+  match '/login', to: 'sessions#new', via: 'get'
+  match '/logout', to: 'sessions#destroy', via: 'delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
