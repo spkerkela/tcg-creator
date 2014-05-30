@@ -1,0 +1,16 @@
+<%= form_for(@card) do |f| %>
+    <%= render 'shared/error_messages', object: f.object%>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.fields_for :fields do |builder| %>
+    <p>
+        <%= builder.label :name, "Fieldname" %>
+        <%= builder.text_field :name %>
+        <%= builder.label :content %>
+        <%= builder.text_field :content %>
+        <%= builder.check_box :_destroy%>
+        <%= builder.label :_destroy, "Remove field" %>
+    </p>
+    <% end %>
+    <%= f.submit %>
+<% end %>

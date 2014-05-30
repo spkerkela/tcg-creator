@@ -1,7 +1,13 @@
 TcgCreator::Application.routes.draw do
   
+  get "cards/new"
+  get "cards/index"
+  get "cards/edit"
+  get "cards/update"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :cards
+
   get "users/new"
   get "static_pages/home"
   # The priority is based upon order of creation: first created -> highest priority.

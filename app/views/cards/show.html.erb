@@ -1,0 +1,5 @@
+<h1><%= @card.name %></h1>
+<% @card.fields.each do |field| %>
+    <strong><%= field.name %></strong>
+    <span><%= field.content%></span>
+<% end %>

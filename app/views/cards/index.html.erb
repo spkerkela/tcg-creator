@@ -1,0 +1,10 @@
+<h1>All cards</h1>
+<% if @cards.any? %>
+    <ul>
+    <% @cards.each do |c| %>
+        <li><%= link_to c.name, card_path(c) %></li>
+    <% end %>
+    </ul>
+<% else %>
+    <p>No cards added yet.</p>
+<% end %>
